@@ -1,0 +1,39 @@
+.burger {
+  position: absolute;
+  animation: fadeIn 1s;
+  width: 60px;
+  top: 90vh;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transition: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+  .ingredient {
+    position: relative;
+    width: inherit;
+    &.top-bun {
+      bottom: -5px;
+      -webkit-transition: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+      transition: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+    &.medium-done-patty {
+    }
+    &.bottom-bun {
+      top: -7px;
+      -webkit-transition: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+      transition: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+  }
+  &.open {
+    // width: 70px;
+    .ingredient {
+      &.top-bun {
+        bottom: 5px;
+      }
+      &.medium-done-patty {
+      }
+      &.bottom-bun {
+        top: 4px;
+      }
+    }
+  }
+}

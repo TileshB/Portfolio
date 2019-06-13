@@ -1,0 +1,78 @@
+.title {
+  position: absolute;
+  animation: fadeIn 1s;
+  line-height: 42px;
+  font-weight: 700;
+  font-family: "montserrat";
+  font-size: 9vw;
+  width: 100%;
+  letter-spacing: 14px;
+  z-index: 10;
+  opacity: 1;
+  display: block;
+  text-decoration: none;
+  -webkit-transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) all;
+  transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) all;
+  &:hover {
+    color: transparent !important;
+  }
+  &.open {
+    color: transparent !important;
+    opacity: 0.5;
+    font-size: 20vw;
+  }
+  &.one {
+    color: #35454e;
+    &:hover {
+      -webkit-text-stroke: 2px #35454e;
+      &:before {
+        content: "ABOUT ";
+      }
+    }
+
+    &.open {
+      width: 200%;
+      -webkit-text-stroke: 2px #35454e;
+      &:before {
+        content: "ABOUT ";
+      }
+    }
+  }
+  &.two {
+    color: #258c9a;
+    &:hover {
+      -webkit-text-stroke: 2px #258c9a;
+      &:before {
+        content: "MY  ";
+      }
+      &:after {
+        content: "S";
+      }
+    }
+
+    &.open {
+      width: 100%;
+      -webkit-text-stroke: 2px #258c9a;
+      &:before {
+        content: "DESIGNS";
+      }
+    }
+  }
+  &.three {
+    color: #a12942;
+    &:hover {
+      -webkit-text-stroke: 2px #a12942;
+      &:after {
+        content: "ER";
+      }
+    }
+
+    &.open {
+      width: 100%;
+      -webkit-text-stroke: 2px #a12942;
+      //   &:before {
+      //     content: "ER";
+      //   }
+    }
+  }
+}

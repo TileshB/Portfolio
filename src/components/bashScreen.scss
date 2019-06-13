@@ -1,0 +1,15 @@
+.terminal-holder {
+  position: absolute;
+
+  width: inherit;
+  height: inherit;
+  z-index: 11;
+  -webkit-transition: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+  &.closed {
+    top: -100vh;
+  }
+  &.open {
+    top: 0px;
+  }
+}
