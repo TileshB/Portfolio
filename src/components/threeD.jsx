@@ -4,6 +4,13 @@ import * as THREE from "three";
 import "./threeD.scss";
 // import { GLTFLoader } from "three/examples/js/loaders/GLTFLoader";
 import GLTFLoader from "three-gltf-loader";
+import {
+  BloomEffect,
+  EffectComposer,
+  EffectPass,
+  RenderPass
+} from "postprocessing";
+import { Clock } from "three";
 
 var loader = new GLTFLoader();
 var run = false;
@@ -126,8 +133,47 @@ class ThreeD extends Component {
     );
 
     this.camera.position.z = 5;
-    // this.renderer.render(this.scene, this.camera);
+    this.composer = new EffectComposer(this.renderer);
+    this.effectPass = new EffectPass(this.camera, new BloomEffect());
+    // this.effectPass = new EffectPass(
+    //   this.camera,
+    //   new PixelationEffect(this.camera)
+    // );
+    this.effectPass.renderToScreen = true;
 
+    this.composer.addPass(new RenderPass(this.scene, this.camera));
+    this.composer.addPass(this.effectPass);
+    // this.renderPass = new RenderPass(this.scene, this.camera);
+
+    // this.renderTargetParameters = {
+    //   minFilter: THREE.LinearFilter,
+    //   magFilter: THREE.LinearFilter,
+    //   stencilBuffer: false
+    // };
+
+    // this.savePass = new SavePass(
+    //   new THREE.WebGLRenderTarget(
+    //     this.three.clientWidth,
+    //     this.three.clientHeight,
+    //     this.renderTargetParameters
+    //   )
+    // );
+
+    // // blend pass
+    // this.blendPass = new ShaderPass(BlendShader, "tDiffuse1");
+    // blendPass.uniforms["tDiffuse2"].value = this.savePass.renderTarget.texture;
+    // blendPass.uniforms["mixRatio"].value = 0.8;
+    // this.blendPass = new ShaderPass(BlenderShader, "t");
+
+    // this.outputPass = new ShaderPass(THREE.CopyShader);
+    // this.outputPass.renderToScreen = true;
+
+    // this.composer.addPass(this.renderPass);
+    // // this.composer.addPass(blendPass);
+    // this.composer.addPass(this.savePass);
+    // this.composer.addPass(this.outputPass);
+    // this.renderer.render(this.scene, this.camera);
+    this.clock = new Clock();
     this.animate();
   }
 
@@ -190,6 +236,7 @@ class ThreeD extends Component {
    */
   animate() {
     requestAnimationFrame(this.animate.bind(this));
+    this.composer.render(this.clock.getDelta());
     this.updateCam();
     this.renderer.render(this.scene, this.camera);
   }
@@ -228,8 +275,8 @@ class ThreeD extends Component {
    */
   componentWillUnmount() {
     window.removeEventListener("resize", this.updateDimensions.bind(this));
-    this.controls.dispose();
-    delete this.controls;
+    // this.controls.dispose();
+    // delete this.controls;
   }
 }
 
