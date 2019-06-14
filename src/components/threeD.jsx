@@ -95,12 +95,12 @@ class ThreeD extends Component {
     // this.cube = new THREE.Mesh(this.geometry, this.material);
     // this.scene.add(this.cube);
     loader.load(
-      "http://localhost:8888/models/hoop/hoop.gltf",
-      // "http://localhost:8888/models/" +
-      //   this.state.models[this.props.mySection] +
-      //   "/" +
-      //   this.state.models[this.props.mySection] +
-      //   ".gltf",
+      // "http://localhost:8888/models/hoop/hoop.gltf",
+      "https://github.com/TileshB/Portfolio/blob/master/src/resources/models/" +
+        this.state.models[this.props.mySection] +
+        "/" +
+        this.state.models[this.props.mySection] +
+        ".gltf",
       // "https://cdn.rawgit.com/siouxcitizen/3DModel/a1c2e475/yuusha.gltf",
       gltf => {
         // called when the resource is loaded
