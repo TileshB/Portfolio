@@ -140,7 +140,7 @@ class FullHeight extends Component {
             mouseY={this.state.y}
             open={this.state.open}
             section={this.state.section}
-            mySection="two"
+            mySection="one"
           />
           {/* <BackImg
             section={this.state.section}
