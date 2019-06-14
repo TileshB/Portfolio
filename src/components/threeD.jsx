@@ -96,7 +96,7 @@ class ThreeD extends Component {
     // this.scene.add(this.cube);
     loader.load(
       // "http://localhost:8888/models/hoop/hoop.gltf",
-      "https://bernardus.co.za/iamadumbpoes/models" +
+      "https://bernardus.co.za/iamadumbpoes/models/" +
         this.state.models[this.props.mySection] +
         "/" +
         this.state.models[this.props.mySection] +
