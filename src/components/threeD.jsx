@@ -10,6 +10,7 @@ import {
   EffectPass,
   RenderPass
 } from "postprocessing";
+
 import { Clock } from "three";
 
 var loader = new GLTFLoader();
@@ -221,13 +222,27 @@ class ThreeD extends Component {
         }
       }
     }
-    if (this.scene.rotation.y !== this.props.mouseX * -1) {
-      this.scene.rotation.y +=
-        (this.props.mouseX * -1 - this.scene.rotation.y) * 0.01;
-    }
-    if (this.scene.rotation.x !== this.props.mouseY * -1) {
-      this.scene.rotation.x +=
-        (this.props.mouseY * -1 - this.scene.rotation.y) * 0.01;
+    if (this.scene.rotation) {
+      if (this.scene.rotation.y !== this.props.mouseX * -1) {
+        var tempVar =
+          this.scene.rotation.y +
+          (this.props.mouseX * -1 - this.scene.rotation.y) * 0.01;
+        if (tempVar > -0.5 && tempVar < 0.5) {
+          this.scene.rotation.y +=
+            (this.props.mouseX * -1 - this.scene.rotation.y) * 0.01;
+          // console.log("Y: " + this.scene.rotation.y);
+        }
+      }
+      if (this.scene.rotation.x > -0.5 && this.scene.rotation.x < 0.5) {
+        var tempVar =
+          this.scene.rotation.x +
+          (this.props.mouseY * -1 - this.scene.rotation.y) * 0.01;
+        if (tempVar > -0.5 && tempVar < 0.5) {
+          this.scene.rotation.x +=
+            (this.props.mouseY * -1 - this.scene.rotation.y) * 0.01;
+          // console.log("X: " + this.scene.rotation.x);
+        }
+      }
     }
   }
 
@@ -266,6 +281,7 @@ class ThreeD extends Component {
   }
 
   onMouseMove = e => {
+    e.preventDefault();
     this.setState({ x: e.screenX, y: e.screenY });
     console.log(this.state.x);
   };

@@ -1,7 +1,7 @@
 .burger {
   position: absolute;
   animation: fadeIn 1s;
-  width: 60px;
+  width: 40px;
   top: 90vh;
   left: 50%;
   transform: translateX(-50%);
@@ -11,14 +11,14 @@
     position: relative;
     width: inherit;
     &.top-bun {
-      bottom: -5px;
+      bottom: -9px;
       -webkit-transition: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
       transition: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
     }
     &.medium-done-patty {
     }
     &.bottom-bun {
-      top: -7px;
+      top: -11px;
       -webkit-transition: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
       transition: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
     }
