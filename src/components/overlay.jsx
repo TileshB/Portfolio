@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./overlay.scss";
+import { CSSTransition } from "react-transition-group";
 
 class Overlay extends Component {
   state = {
@@ -9,9 +10,9 @@ class Overlay extends Component {
       three: "01101000 01100101 01101100 01101100 01101111"
     },
     number: {
-      one: "001",
-      two: "002",
-      three: "003"
+      one: "1",
+      two: "2",
+      three: "3"
     },
     date: ""
   };
@@ -48,7 +49,7 @@ class Overlay extends Component {
   render() {
     return (
       <div className="overlay-container">
-        <p className="number">{this.state.number[this.props.section]}</p>
+        <p className="number">00{this.state.number[this.props.section]}</p>
         <p className="date lines">
           <span className="holder">
             <div className="side left">{this.state.date}</div>

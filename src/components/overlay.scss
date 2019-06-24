@@ -69,3 +69,12 @@
     background-color: white;
   }
 }
+
+.fade-appear {
+  opacity: 0;
+  z-index: 1;
+  &.fade-appear-active {
+    opacity: 1;
+    transition: opacity 300ms linear;
+  }
+}
