@@ -7,6 +7,7 @@ import LargeTitle from "./largeTitle";
 import Hamburger from "./hamburger";
 import BashScreen from "./bashScreen";
 import ThreeD from "./threeD";
+import Overlay from "./overlay";
 
 class FullHeight extends Component {
   state = {
@@ -16,6 +17,7 @@ class FullHeight extends Component {
     section: "one",
     title: "Tilesh",
     titles: ["Tilesh", "Design", "Develop"],
+    actives: ["active", "hide", "hide"],
     scroll: true,
     x: 0,
     y: 0
@@ -84,6 +86,13 @@ class FullHeight extends Component {
 
   handleScroll = e => {
     // console.log("Ready to scroll ", e);
+    var tempArray = [];
+    var freshArray = [];
+    tempArray = this.state.actives.slice();
+    freshArray = this.state.actives.slice();
+    freshArray[0] = "hide";
+    freshArray[1] = "hide";
+    freshArray[2] = "hide";
     setTimeout(
       function() {
         this.setState({ scroll: true });
@@ -93,23 +102,34 @@ class FullHeight extends Component {
     if (this.state.scroll) {
       var currSection = 0;
       if (e.deltaY > 10.1) {
+        // this.setState({ actives: freshArray });
         currSection = this.getIndex(this.state.section, this.state.sections);
         if (currSection !== 0) currSection = currSection - 1;
-        console.log(currSection);
+        // console.log(currSection);
+        tempArray = freshArray;
+        tempArray[currSection] = "active";
+        console.log(tempArray);
         this.setState({
           section: this.state.sections[currSection],
-          title: this.state.titles[currSection]
+          title: this.state.titles[currSection],
+          actives: tempArray
         });
         this.setState({ scroll: false });
       } else if (e.deltaY < -10.1) {
+        // this.setState({ actives: freshArray });
         currSection = this.getIndex(this.state.section, this.state.sections);
         if (currSection !== this.state.sections.length - 1)
           currSection = currSection + 1;
-        console.log(currSection);
+        tempArray = freshArray;
+        tempArray[currSection] = "active";
+        // console.log(currSection);
+        console.log(tempArray);
+
         console.log("FUUUUUUUCK");
         this.setState({
           section: this.state.sections[currSection],
-          title: this.state.titles[currSection]
+          title: this.state.titles[currSection],
+          actives: tempArray
         });
         this.setState({ scroll: false });
       }
@@ -135,28 +155,38 @@ class FullHeight extends Component {
             open={this.state.open}
             action={this.toggleTerminal}
           />
+          <Overlay section={this.state.section} />
           <ThreeD
             mouseX={this.state.x}
             mouseY={this.state.y}
             open={this.state.open}
             section={this.state.section}
+            visible={this.state.actives[0]}
             mySection="one"
+          />
+          <ThreeD
+            mouseX={this.state.x}
+            mouseY={this.state.y}
+            open={this.state.open}
+            section={this.state.section}
+            visible={this.state.actives[2]}
+            mySection="two"
           />
           {/* <BackImg
             section={this.state.section}
             open={this.state.open}
             mySection="one"
           /> */}
-          <BackImg
+          {/* <BackImg
             section={this.state.section}
             open={this.state.open}
             mySection="two"
-          />
-          <BackImg
+          /> */}
+          {/* <BackImg
             section={this.state.section}
             open={this.state.open}
             mySection="three"
-          />
+          /> */}
           <LargeTitle
             action={this.toggleClick}
             open={this.state.open}

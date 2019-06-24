@@ -1,0 +1,71 @@
+.overlay-container {
+  position: absolute;
+  pointer-events: none;
+  position: absolute;
+  color: white;
+  font-weight: bold;
+  font-size: 1.25em;
+  margin: 0px;
+  width: 100vw;
+  height: 100vh;
+  top: 0px;
+  .date {
+    position: absolute;
+    left: 3vw;
+    transform-origin: left;
+    top: 50vh;
+    text-align: left;
+    transform: rotate(-90deg) translate(-50%, 50%);
+  }
+  .interest {
+    position: absolute;
+    margin: 0px;
+    right: 3vw;
+    transform-origin: right;
+    top: 50vh;
+    text-align: left;
+    transform: rotate(90deg) translate(50%, 50%);
+  }
+  .number {
+    position: absolute;
+    right: 3vw;
+    margin-top: 0px;
+    top: 3vh;
+    text-align: right;
+    font-size: -webkit-xxx-large;
+  }
+  .holder {
+    display: inline-block;
+    overflow: hidden;
+  }
+  .side {
+    overflow: hidden;
+    position: relative;
+  }
+  .lines::before {
+    content: "";
+    left: -5vh;
+    width: 30px;
+    height: 4px;
+    vertical-align: -50%;
+    top: 50%;
+    transform: translateY(-50%);
+    /* margin: 0 auto; */
+    display: inline-block;
+    position: absolute;
+    background-color: white;
+  }
+  .lines::after {
+    content: "";
+    right: -5vh;
+    width: 30px;
+    height: 4px;
+    vertical-align: -50%;
+    top: 50%;
+    transform: translateY(-50%);
+    /* margin: 0 auto; */
+    display: inline-block;
+    position: absolute;
+    background-color: white;
+  }
+}

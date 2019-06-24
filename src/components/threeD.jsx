@@ -35,7 +35,7 @@ class ThreeD extends Component {
   render() {
     return (
       <div
-        className="threeObj"
+        className={`threeObj ${this.props.visible}`}
         ref={el => {
           this.three = el;
         }}
@@ -113,15 +113,29 @@ class ThreeD extends Component {
       gltf => {
         // called when the resource is loaded
         // this.scene.add(gltf.scene);
-        var object = gltf.scene;
-        gltf.scene.scale.set(16.5, 16.5, 16.5);
-        gltf.scene.position.x = 0;
-        // gltf.scene.position.y = -0.08; //Position (y = up+, down-)
-        gltf.scene.position.z = 0;
-        gltf.scene.rotation.y = 0;
-        console.log(gltf.scene.rotation);
-        this.scene.add(gltf.scene);
-        console.log(gltf);
+        if (this.props.mySection === "one") {
+          var object = gltf.scene;
+          gltf.scene.scale.set(16.5, 16.5, 16.5);
+          gltf.scene.position.x = 0;
+          // gltf.scene.position.y = -0.08; //Position (y = up+, down-)
+          gltf.scene.position.z = 0;
+          gltf.scene.rotation.y = 0;
+          console.log(gltf.scene.rotation);
+          this.scene.add(gltf.scene);
+          console.log(gltf);
+        } else if (this.props.mySection === "two") {
+          var object = gltf.scene;
+          gltf.scene.applyMatrix(new THREE.Matrix4().setPosition(0, 0, 0));
+          gltf.scene.scale.set(1.5, 1.5, 1.5);
+          gltf.scene.position.x = 0;
+          // gltf.scene.position.y = -0.08; //Position (y = up+, down-)
+          // gltf.scene.position.z = -20;
+          // gltf.scene.rotation.y = 120;
+          // gltf.scene.rotation.x = 0;
+          console.log(gltf.scene.rotation);
+          this.scene.add(gltf.scene);
+          console.log(gltf);
+        }
       },
       xhr => {
         // called while loading is progressing
