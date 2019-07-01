@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./overlay.scss";
-import { CSSTransition } from "react-transition-group";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 class Overlay extends Component {
   state = {
@@ -48,21 +48,29 @@ class Overlay extends Component {
   }
   render() {
     return (
-      <div className="overlay-container">
+      <div className={`overlay-container ${this.props.open}`}>
         <p className="number">00{this.state.number[this.props.section]}</p>
-        <p className="date lines">
+        <div className="date lines">
           <span className="holder">
             <div className="side left">{this.state.date}</div>
           </span>
           {/* <span className="lines">&#8212;</span>{" "} */}
-        </p>
-        <p className="interest lines">
+        </div>
+        <div className="interest lines">
           <span className="holder">
+            {/* <TransitionGroup>
+              <CSSTransition
+                key={this.props.section}
+                classNames="example"
+                timeout={{ enter: 500, exit: 300 }}
+              > */}
             <div className="side right">
               {this.state.interest[this.props.section]}
             </div>
+            {/* </CSSTransition>
+            </TransitionGroup> */}
           </span>
-        </p>
+        </div>
       </div>
     );
   }

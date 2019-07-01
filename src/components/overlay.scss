@@ -9,15 +9,35 @@
   width: 100vw;
   height: 100vh;
   top: 0px;
+  &.open {
+    .date {
+      left: -3vw;
+      opacity: 0;
+    }
+
+    .interest {
+      right: -3vw;
+      opacity: 0;
+    }
+
+    .number {
+      top: -10vh;
+      opacity: 0;
+    }
+  }
   .date {
+    opacity: 1;
     position: absolute;
     left: 3vw;
     transform-origin: left;
     top: 50vh;
     text-align: left;
     transform: rotate(-90deg) translate(-50%, 50%);
+    -webkit-transition: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
   .interest {
+    opacity: 1;
     position: absolute;
     margin: 0px;
     right: 3vw;
@@ -25,14 +45,19 @@
     top: 50vh;
     text-align: left;
     transform: rotate(90deg) translate(50%, 50%);
+    -webkit-transition: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
   .number {
+    opacity: 1;
     position: absolute;
     right: 3vw;
     margin-top: 0px;
     top: 3vh;
     text-align: right;
     font-size: -webkit-xxx-large;
+    -webkit-transition: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
   .holder {
     display: inline-block;
@@ -70,11 +95,28 @@
   }
 }
 
-.fade-appear {
-  opacity: 0;
-  z-index: 1;
-  &.fade-appear-active {
-    opacity: 1;
-    transition: opacity 300ms linear;
-  }
+// .fade-appear {
+//   opacity: 0;
+//   z-index: 1;
+//   &.fade-appear-active {
+//     opacity: 1;
+//     transition: opacity 300ms linear;
+//   }
+// }
+.example-enter {
+  opacity: 0.01;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.example-exit {
+  opacity: 1;
+}
+
+.example-exit.example-exit-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
 }

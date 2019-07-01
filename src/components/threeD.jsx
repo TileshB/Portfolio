@@ -8,7 +8,11 @@ import {
   BloomEffect,
   EffectComposer,
   EffectPass,
-  RenderPass
+  RenderPass,
+  GlitchEffect,
+  PixelationEffect,
+  SMAAEffect,
+  NoiseEffect
 } from "postprocessing";
 
 import { Clock } from "three";
@@ -149,15 +153,32 @@ class ThreeD extends Component {
 
     this.camera.position.z = 5;
     this.composer = new EffectComposer(this.renderer);
-    this.effectPass = new EffectPass(this.camera, new BloomEffect());
-    // this.effectPass = new EffectPass(
-    //   this.camera,
-    //   new PixelationEffect(this.camera)
-    // );
-    this.effectPass.renderToScreen = true;
+    if (this.props.mySection === "one") {
+      this.effectPass = new EffectPass(this.camera, new BloomEffect());
+      // this.effectPass = new EffectPass(
+      //   this.camera,
+      //   new PixelationEffect(this.camera)
+      // );
+      this.effectPass.renderToScreen = true;
 
-    this.composer.addPass(new RenderPass(this.scene, this.camera));
-    this.composer.addPass(this.effectPass);
+      this.composer.addPass(new RenderPass(this.scene, this.camera));
+      this.composer.addPass(this.effectPass);
+    } else if (this.props.mySection === "two") {
+      this.effectPass = new EffectPass(this.camera, new GlitchEffect());
+      this.smoothPass = new EffectPass(this.camera, new SMAAEffect());
+      // this.effectPass = new EffectPass(this.camera, new PixelationEffect(5.0));
+      // this.noisePass = new NoiseEffect(this.camera, new NoiseEffect());
+      // this.glitchPass = new EffectPass(
+      //   this.camera,
+      //   new PixelationEffect(this.camera)
+      // );
+      this.effectPass.renderToScreen = true;
+
+      this.composer.addPass(new RenderPass(this.scene, this.camera));
+      this.composer.addPass(this.effectPass);
+      this.composer.addPass(this.smoothPass);
+      // this.composer.addPass(this.glitchPass); 
+    }
     // this.renderPass = new RenderPass(this.scene, this.camera);
 
     // this.renderTargetParameters = {

@@ -155,7 +155,7 @@ class FullHeight extends Component {
             open={this.state.open}
             action={this.toggleTerminal}
           />
-          <Overlay section={this.state.section} />
+          <Overlay section={this.state.section} open={this.state.open} />
           <ThreeD
             mouseX={this.state.x}
             mouseY={this.state.y}
