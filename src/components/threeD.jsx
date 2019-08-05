@@ -136,9 +136,9 @@ class ThreeD extends Component {
           // gltf.scene.position.z = -20;
           // gltf.scene.rotation.y = 120;
           // gltf.scene.rotation.x = 0;
-          console.log(gltf.scene.rotation);
+          // console.log(gltf.scene.rotation);
           this.scene.add(gltf.scene);
-          console.log(gltf);
+          // console.log(gltf);
         }
       },
       xhr => {
@@ -177,7 +177,7 @@ class ThreeD extends Component {
       this.composer.addPass(new RenderPass(this.scene, this.camera));
       this.composer.addPass(this.effectPass);
       this.composer.addPass(this.smoothPass);
-      // this.composer.addPass(this.glitchPass); 
+      // this.composer.addPass(this.glitchPass);
     }
     // this.renderPass = new RenderPass(this.scene, this.camera);
 
@@ -228,7 +228,7 @@ class ThreeD extends Component {
         if (this.scene.scale.x < 1) {
           var amount = 1 - this.scene.scale.x;
           amount = amount / 5;
-          console.log(amount);
+          // console.log(amount);
           this.scene.scale.set(
             this.scene.scale.x + amount,
             this.scene.scale.y + amount,

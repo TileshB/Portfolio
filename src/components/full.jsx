@@ -8,6 +8,7 @@ import Hamburger from "./hamburger";
 import BashScreen from "./bashScreen";
 import ThreeD from "./threeD";
 import Overlay from "./overlay";
+// import Gallery from "./gallery";
 
 class FullHeight extends Component {
   state = {
@@ -172,6 +173,7 @@ class FullHeight extends Component {
             visible={this.state.actives[2]}
             mySection="two"
           />
+          {/* <Gallery/> */}
           {/* <BackImg
             section={this.state.section}
             open={this.state.open}
