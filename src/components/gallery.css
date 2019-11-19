@@ -1,0 +1,20 @@
+.galleryContainer {
+  box-sizing: padding-box;
+  -moz-box-sizing: padding-box;
+  -webkit-box-sizing: padding-box;
+  padding-top: 60px;
+  position: absolute;
+  top: 0px;
+  width: 2500px;
+  height: 100vh;
+  z-index: 2000;
+  overflow-x: scroll;
+}
+
+.galleryContainer .galleryImg {
+  position: absolute;
+  display: block;
+  border: 3px solid black;
+  top: 50vh;
+  transform: translateY(-50%);
+}

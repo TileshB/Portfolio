@@ -8,7 +8,7 @@ import Hamburger from "./hamburger";
 import BashScreen from "./bashScreen";
 import ThreeD from "./threeD";
 import Overlay from "./overlay";
-// import Gallery from "./gallery";
+import Gallery from "./gallery";
 
 class FullHeight extends Component {
   state = {
@@ -33,7 +33,7 @@ class FullHeight extends Component {
 
   componentDidMount() {
     // window.addEventListener("scroll", e => this.handleScroll(e));
-    window.addEventListener("wheel", e => this.handleScroll(e));
+    // window.addEventListener("wheel", e => this.handleScroll(e));
   }
 
   componentWillUnmount() {
@@ -85,57 +85,57 @@ class FullHeight extends Component {
     // console.log(this.state.x, this.state.y);
   };
 
-  handleScroll = e => {
-    // console.log("Ready to scroll ", e);
-    var tempArray = [];
-    var freshArray = [];
-    tempArray = this.state.actives.slice();
-    freshArray = this.state.actives.slice();
-    freshArray[0] = "hide";
-    freshArray[1] = "hide";
-    freshArray[2] = "hide";
-    setTimeout(
-      function() {
-        this.setState({ scroll: true });
-      }.bind(this),
-      1000
-    );
-    if (this.state.scroll) {
-      var currSection = 0;
-      if (e.deltaY > 10.1) {
-        // this.setState({ actives: freshArray });
-        currSection = this.getIndex(this.state.section, this.state.sections);
-        if (currSection !== 0) currSection = currSection - 1;
-        // console.log(currSection);
-        tempArray = freshArray;
-        tempArray[currSection] = "active";
-        console.log(tempArray);
-        this.setState({
-          section: this.state.sections[currSection],
-          title: this.state.titles[currSection],
-          actives: tempArray
-        });
-        this.setState({ scroll: false });
-      } else if (e.deltaY < -10.1) {
-        // this.setState({ actives: freshArray });
-        currSection = this.getIndex(this.state.section, this.state.sections);
-        if (currSection !== this.state.sections.length - 1)
-          currSection = currSection + 1;
-        tempArray = freshArray;
-        tempArray[currSection] = "active";
-        // console.log(currSection);
-        console.log(tempArray);
+  // handleScroll = e => {
+  //   // console.log("Ready to scroll ", e);
+  //   var tempArray = [];
+  //   var freshArray = [];
+  //   tempArray = this.state.actives.slice();
+  //   freshArray = this.state.actives.slice();
+  //   freshArray[0] = "hide";
+  //   freshArray[1] = "hide";
+  //   freshArray[2] = "hide";
+  //   setTimeout(
+  //     function() {
+  //       this.setState({ scroll: true });
+  //     }.bind(this),
+  //     1000
+  //   );
+  //   if (this.state.scroll) {
+  //     var currSection = 0;
+  //     if (e.deltaY > 10.1) {
+  //       // this.setState({ actives: freshArray });
+  //       currSection = this.getIndex(this.state.section, this.state.sections);
+  //       if (currSection !== 0) currSection = currSection - 1;
+  //       // console.log(currSection);
+  //       tempArray = freshArray;
+  //       tempArray[currSection] = "active";
+  //       // console.log(tempArray);
+  //       this.setState({
+  //         section: this.state.sections[currSection],
+  //         title: this.state.titles[currSection],
+  //         actives: tempArray
+  //       });
+  //       this.setState({ scroll: false });
+  //     } else if (e.deltaY < -10.1) {
+  //       // this.setState({ actives: freshArray });
+  //       currSection = this.getIndex(this.state.section, this.state.sections);
+  //       if (currSection !== this.state.sections.length - 1)
+  //         currSection = currSection + 1;
+  //       tempArray = freshArray;
+  //       tempArray[currSection] = "active";
+  //       // console.log(currSection);
+  //       // console.log(tempArray);
 
-        console.log("FUUUUUUUCK");
-        this.setState({
-          section: this.state.sections[currSection],
-          title: this.state.titles[currSection],
-          actives: tempArray
-        });
-        this.setState({ scroll: false });
-      }
-    }
-  };
+  //       // console.log("FUUUUUUUCK");
+  //       this.setState({
+  //         section: this.state.sections[currSection],
+  //         title: this.state.titles[currSection],
+  //         actives: tempArray
+  //       });
+  //       this.setState({ scroll: false });
+  //     }
+  //   }
+  // };
 
   render() {
     return (
@@ -146,6 +146,7 @@ class FullHeight extends Component {
       >
         <div className="center">
           <BashScreen classes={this.state.cmd} />
+          <Gallery />
           <Left
             open={this.state.open}
             image={this.state.title}
@@ -173,7 +174,6 @@ class FullHeight extends Component {
             visible={this.state.actives[2]}
             mySection="two"
           />
-          {/* <Gallery/> */}
           {/* <BackImg
             section={this.state.section}
             open={this.state.open}
