@@ -9,6 +9,7 @@ import BashScreen from "./bashScreen";
 import ThreeD from "./threeD";
 import Overlay from "./overlay";
 import Gallery from "./gallery";
+import ShakeyBoi from "./shakeyBoi";
 
 class FullHeight extends Component {
   state = {
@@ -21,7 +22,8 @@ class FullHeight extends Component {
     actives: ["active", "hide", "hide"],
     scroll: true,
     x: 0,
-    y: 0
+    y: 0,
+    keypressArray: []
   };
 
   constructor(props) {
@@ -32,6 +34,7 @@ class FullHeight extends Component {
   }
 
   componentDidMount() {
+    window.addEventListener("keydown", e => this.Konami(e));
     // window.addEventListener("scroll", e => this.handleScroll(e));
     // window.addEventListener("wheel", e => this.handleScroll(e));
   }
@@ -83,6 +86,26 @@ class FullHeight extends Component {
     var tempY = e.clientY / window.innerHeight - 0.5;
     this.setState({ x: tempX, y: tempY });
     // console.log(this.state.x, this.state.y);
+  };
+
+  Konami = e => {
+    var konami = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+    var index = this.state.keypressArray.length;
+    if (index < 10) {
+      if (e.keyCode == konami[index]) {
+        this.setState(prevState => ({
+          keypressArray: [...prevState.keypressArray, e.keyCode]
+        }));
+        console.log("okaaaay");
+      } else {
+        this.setState({ keypressArray: [] });
+        console.log("fucked it");
+      }
+    }
+    index = this.state.keypressArray.length;
+    if (index == 10) {
+      this.setState({ cmd: "open" });
+    }
   };
 
   // handleScroll = e => {
@@ -147,6 +170,7 @@ class FullHeight extends Component {
         <div className="center">
           <BashScreen classes={this.state.cmd} />
           <Gallery />
+          <ShakeyBoi />
           <Left
             open={this.state.open}
             image={this.state.title}
