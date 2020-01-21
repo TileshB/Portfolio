@@ -9,20 +9,26 @@
   width: 100vw;
   height: 100vh;
   top: 0px;
-  &.open {
-    .date {
-      left: -3vw;
-      opacity: 0;
-    }
+  -webkit-user-select: none; /* Chrome all / Safari all */
+  -moz-user-select: none; /* Firefox all */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none; /* Likely future */
+  &.one, &.three {
+    &.open {
+      .date {
+        left: -3vw;
+        opacity: 0;
+      }
 
-    .interest {
-      right: -3vw;
-      opacity: 0;
-    }
+      .interest {
+        right: -3vw;
+        opacity: 0;
+      }
 
-    .number {
-      top: -10vh;
-      opacity: 0;
+      .number {
+        top: -10vh;
+        opacity: 0;
+      }
     }
   }
   .date {

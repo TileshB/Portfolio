@@ -4,7 +4,7 @@ import "./full.scss";
 class Left extends Component {
   render() {
     let imageLeft = "";
-    if (this.props.section !== "three") {
+    if (this.props.section == "one") {
       imageLeft = (
         <img
           className="leftImg"

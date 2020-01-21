@@ -10,11 +10,41 @@ class BashScreen extends Component {
     "Don't bother, no one can hear you.There is no escape (:... Just kidding!:D But for real, just type 'help', no jokes this time";
   state = {
     // gameStart: "false",
-    currChoices: []
+    currChoices: [],
+    sass: false
   };
 
   constructor(props) {
     super(props);
+    this.focusClick = this.focusClick.bind(this)
+    this.toggleClose = this.toggleClose.bind(this)
+  }
+
+  toggleClose(){
+    if(this.state.sass){
+      alert("Are you trying to get rid of me?? :(")
+      alert("Fine ill leave... for now");
+      this.props.onClose();
+      setTimeout(function(){
+        alert("Why did you do it though? :(")
+        let reason = prompt("Reason for murder")
+        reason = reason.replace(/you're/g, "I'm")
+        reason = reason.replace(/you/g, "I")
+        reason = reason.replace(/I'm/g, "you")
+        reason = reason.replace(/I am/g, "you")
+        reason = reason.replace(/im/g, "you")
+        reason = reason.replace(/I/g, "you")
+        let result = window.confirm("So mainly because youre a cunt afraid of AI?? and your reason being '" + reason + "'!?")
+      }, 5000)
+    }
+    else{
+      this.props.onClose();
+    }
+  }
+
+  focusClick(event){
+    // document.querySelectorAll(".terminal-base input").focus()
+    console.log("YYUUUUPPPP");
   }
 
   currChoice(params) {}
@@ -23,9 +53,20 @@ class BashScreen extends Component {
 
   render() {
     return (
-      <div className={`terminal-holder ${this.props.classes}`}>
-        <Terminal
+      <div className={`terminal-holder ${this.props.classes}`} onClick={() => this.focusClick}>
+        <Terminal 
           // watchConsoleLogging
+          actionHandlers={{
+            handleClose: (toggleClose) => {
+              // do something on close
+            //  'echo nope'
+              this.toggleClose();
+            },
+            // handleMaximise: (toggleMaximise) => {
+            //   // do something on maximise
+            //   toggleMaximise();
+            }
+          }
           color="green"
           backgroundColor="black"
           // hideTopBar={true}
@@ -34,8 +75,14 @@ class BashScreen extends Component {
           promptSymbol="old-school-PC:~$"
           style={{ fontWeight: "bold", fontSize: "1em" }}
           commands={{
-            "open-google": () =>
-              window.open("https://www.google.com/", "_blank"),
+            "open-google": (args) => {
+              var text = args.slice(1).join("+")
+              if(text)
+                window.open("https://www.google.com/search?q="+text, "_blank")
+              else{
+                window.open("https://www.google.com/", "_blank")
+              }
+            },
             showmsg: this.showMsg,
             popup: () => alert("Terminal in React"),
             "help-me": this.helpMsg,
@@ -65,7 +112,7 @@ class BashScreen extends Component {
             }
           }}
           descriptions={{
-            "open-google": "opens google.com",
+            "open-google": "opens google.com or try open-google 'a term etc' to google something",
             showmsg: "shows a message",
             alert: "alert",
             popup: "alert",

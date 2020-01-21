@@ -21,6 +21,23 @@ class Overlay extends Component {
     this.getDate();
   }
 
+  componentDidUpdate() {
+    // console.log("There was a change!!!");
+    if (this.props.open == "open") {
+      if (this.state.interest["two"] == "UUDDLRLRBA&#9166;") {
+        this.setState({
+          interest: { two: "My gallery" }
+        });
+      }
+    } else {
+      if (this.state.interest["two"] != "UUDDLRLRBA&#9166;") {
+        this.setState({
+          interest: { two: "UUDDLRLRBA&#9166;" }
+        });
+      }
+    }
+  }
+
   getDate() {
     var today = new Date();
     var months = [
@@ -43,12 +60,14 @@ class Overlay extends Component {
       today.getDate() +
       " " +
       today.getFullYear();
-    console.log("THIS THAAANG" + this.state.interest[this.props.section]);
+    // console.log("THIS THAAANG" + this.state.interest[this.props.section]);
     this.setState({ date: this.date });
   }
   render() {
     return (
-      <div className={`overlay-container ${this.props.open}`}>
+      <div
+        className={`overlay-container ${this.props.section} ${this.props.open}`}
+      >
         <p className="number">00{this.state.number[this.props.section]}</p>
         <div className="date lines">
           <span className="holder">

@@ -119,18 +119,18 @@ class ThreeD extends Component {
         // this.scene.add(gltf.scene);
         if (this.props.mySection === "one") {
           var object = gltf.scene;
-          gltf.scene.scale.set(16.5, 16.5, 16.5);
+          gltf.scene.scale.set(14, 14, 14);
           gltf.scene.position.x = 0;
           // gltf.scene.position.y = -0.08; //Position (y = up+, down-)
           gltf.scene.position.z = 0;
           gltf.scene.rotation.y = 0;
-          console.log(gltf.scene.rotation);
+          // console.log(gltf.scene.rotation);
           this.scene.add(gltf.scene);
-          console.log(gltf);
+          // console.log(gltf);
         } else if (this.props.mySection === "two") {
           var object = gltf.scene;
           gltf.scene.applyMatrix(new THREE.Matrix4().setPosition(0, 0, 0));
-          gltf.scene.scale.set(1.5, 1.5, 1.5);
+          gltf.scene.scale.set(1, 1, 1);
           gltf.scene.position.x = 0;
           // gltf.scene.position.y = -0.08; //Position (y = up+, down-)
           // gltf.scene.position.z = -20;
@@ -246,7 +246,7 @@ class ThreeD extends Component {
       if (this.scene.scale.x > 0.5) {
         var amount = this.scene.scale.x - 0.5;
         amount = amount / 5;
-        console.log(amount);
+        // console.log(amount);
         this.scene.scale.set(
           this.scene.scale.x - amount,
           this.scene.scale.y - amount,

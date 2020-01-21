@@ -8,7 +8,8 @@ import Hamburger from "./hamburger";
 import BashScreen from "./bashScreen";
 import ThreeD from "./threeD";
 import Overlay from "./overlay";
-import Gallery from "./gallery";
+import Gallery2 from "./gallery-v2";
+// import Gallery from "./gallery";
 // import ShakeyBoi from "./shakeyBoi";
 
 class FullHeight extends Component {
@@ -214,8 +215,8 @@ class FullHeight extends Component {
         onMouseMove={this.handleMouse}
       >
         <div className="center">
-          <BashScreen classes={this.state.cmd} />
-          <Gallery />
+          <BashScreen classes={this.state.cmd} onClose={this.toggleTerminal}/>
+          <Gallery2 open={this.state.open} section={this.state.section} />
           {/* <ShakeyBoi /> */}
           <Left
             open={this.state.open}
