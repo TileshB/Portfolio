@@ -138,6 +138,9 @@
     }
   }
 }
+.brckt{
+  display: none;
+}
 
 @media only screen and (max-width: 768px) {
   .floatRight {
@@ -149,19 +152,20 @@
         height: 11vh !important;
         left: 50%;
         font-size: 20px;
-        span {
-          font-size: 15px !important;
-        }
+      }
+      span{
+        font-size: 20px !important;
       }
     }
-  }
-  .floatRight div span{
-    font-size: 20px !important;
-  }
   .mail,
   .call {
     font-size: 26px !important;
   }
+  .brckt{
+    display: contents;
+    font-size: 20px !important;
+  }
+}
   .comingSoon{
     font-size: 28px !important;
   }

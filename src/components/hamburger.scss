@@ -81,3 +81,10 @@
     }
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .nav-list.open .nav-item{
+    font-size: 3.5vw !important;
+    padding: 0vw 4vw 4vw 0vw !important;
+  }
+}

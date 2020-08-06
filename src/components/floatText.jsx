@@ -25,8 +25,8 @@ const FloatText = ({ action, open, section, triggerHover, offHover, showEmail, h
   } else if(section === "four"){
     para = (
       <div className="contact">
-        <h3 className="first-contact">Well hey there!<br/> Want to get in contact, send me a <span className="mail" onMouseEnter={showEmail} onMouseLeave={hideEmail}>mail</span>!</h3>
-        <h3 className="first-contact">If you really need to, give me a <span className="call" onMouseEnter={showNum} onMouseLeave={hideNum}>call</span>. Be warned, I am introverted and anxious!</h3>
+        <h3 className="first-contact">Well hey there!<br/> Want to get in contact, send me a <a href="mailto:tileshb@gmail.com"><span className="mail" onMouseEnter={showEmail} onMouseLeave={hideEmail}>mail <span className="brckt">(tileshb@gmail.com)</span></span></a>!</h3>
+        <h3 className="first-contact">If you really need to, give me a <span className="call" onMouseEnter={showNum} onMouseLeave={hideNum}>call <span className="brckt">(076 823 2169)</span></span>. Be warned, I am introverted and anxious!</h3>
         {/* <img className="sup" src={gif} alt=""/> */}
       </div>
     )
