@@ -15,12 +15,16 @@
   transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) all;
   &:hover {
     color: transparent !important;
-    cursor: cell;
+    // cursor: none;
   }
   &.open {
     color: transparent !important;
     opacity: 0.5;
     font-size: 20vw;
+    pointer-events: none;
+    &.four{
+      opacity: 0.2;
+    }
   }
   &.one {
     color: #35454e;
@@ -71,6 +75,23 @@
     &.open {
       width: 100%;
       -webkit-text-stroke: 2px #a12942;
+      //   &:before {
+      //     content: "ER";
+      //   }
+    }
+  }
+  &.four {
+    color: white;
+    &:hover {
+      -webkit-text-stroke: 2px white;
+      &:after {
+        content: "ING";
+      }
+    }
+
+    &.open {
+      width: 100%;
+      -webkit-text-stroke: 2px white;
       //   &:before {
       //     content: "ER";
       //   }

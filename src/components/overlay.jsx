@@ -7,14 +7,16 @@ class Overlay extends Component {
     interest: {
       one: "Big duck energy",
       two: "UUDDLRLRBA&#9166;",
-      three: "01101000 01100101 01101100 01101100 01101111"
+      three: "01101000 01100101 01101100 01101100 01101111",
+      four: "Hey there!",
     },
     number: {
       one: "1",
       two: "2",
-      three: "3"
+      three: "3",
+      four: "4",
     },
-    date: ""
+    date: "",
   };
 
   componentDidMount() {
@@ -24,16 +26,30 @@ class Overlay extends Component {
   componentDidUpdate() {
     // console.log("There was a change!!!");
     if (this.props.open == "open") {
-      if (this.state.interest["two"] == "UUDDLRLRBA&#9166;") {
-        this.setState({
-          interest: { two: "My gallery" }
-        });
+      if (this.props.section == "two") {
+        if (this.state.interest["two"] == "UUDDLRLRBA&#9166;") {
+          this.setState({
+            interest: {
+              one: "Big duck energy",
+              two: "My gallery",
+              three: "01101000 01100101 01101100 01101100 01101111",
+              four: "Hey there!",
+            },
+          });
+        }
       }
     } else {
-      if (this.state.interest["two"] != "UUDDLRLRBA&#9166;") {
-        this.setState({
-          interest: { two: "UUDDLRLRBA&#9166;" }
-        });
+      if (this.props.section == "two") {
+        if (this.state.interest["two"] != "UUDDLRLRBA&#9166;") {
+          this.setState({
+            interest: {
+              one: "Big duck energy",
+              two: "UUDDLRLRBA&#9166;",
+              three: "01101000 01100101 01101100 01101100 01101111",
+              four: "Hey there!",
+            },
+          });
+        }
       }
     }
   }
@@ -52,7 +68,7 @@ class Overlay extends Component {
       "September",
       "October",
       "November",
-      "December"
+      "December",
     ];
     this.date =
       months[today.getMonth()] +

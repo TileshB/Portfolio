@@ -31,11 +31,12 @@ class Hamburger extends Component {
 
   render() {
     return (
-      <div>
+      <div className="nav-holder">
         <a
           href="#"
-          className={`burger ${this.state.open}`}
+          className={`burger link ${this.state.open}`}
           onClick={this.toggleMenu}
+          onMouseEnter={this.props.triggerHover} onMouseLeave={this.props.offHover}
         >
           <img
             className="ingredient top-bun"
@@ -58,7 +59,8 @@ class Hamburger extends Component {
           <a className="nav-item left" onClick={e =>this.handleClicking(0, e)} onMouseOver={e => this.props.onHover(0)} >Tilesh</a>
           <a className="nav-item left" onClick={e =>this.handleClicking(1, e)} onMouseOver={e => this.props.onHover(1)} >Design</a>
           <a className="nav-item right" onClick={e =>this.handleClicking(2, e)} onMouseOver={e => this.props.onHover(2)}>Develop</a>
-          <a className="nav-item right">Contact</a>
+          <a className="nav-item right" onClick={e =>this.handleClicking(3, e)} onMouseOver={e => this.props.onHover(3)}>Contact</a>
+          {/* <a className="nav-item right">Contact</a> */}
         </div>
       </div>
     );

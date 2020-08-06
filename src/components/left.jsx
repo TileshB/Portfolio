@@ -13,6 +13,15 @@ class Left extends Component {
         />
       );
     }
+    else if(this.props.section == "four"){
+      imageLeft = (
+        <img
+          className="leftImg four"
+          src={require(`../resources/${this.props.image}.jpg`)}
+          alt=""
+        />
+      );
+    }
 
     return <div className={`half ${this.props.open}`}>{imageLeft}</div>;
   }

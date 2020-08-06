@@ -10,26 +10,168 @@
 
 .floatRight {
   position: absolute;
-  top: 10vh;
-  right: 5vw;
+  top: 6vh;
+  right: 4vw;
+  text-align: right;
   width: 40vw;
   z-index: 100;
   -webkit-transition: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
   transition: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
-  p {
-    text-align: right;
-    font-size: 2.5vh;
-    font-weight: 500;
+  &.three{
+    top: 10vh;
+    left: 50%;
+    width: 60vw;
+    transform: translate(-50%);
+    .comingSoon{
+      font-size: 48px;
+      font-weight: 700;
+      text-align: center;
+    }
+  }
+  &.four {
+    right: 0px;
+    top: 0px;
+    width: 100vw;
+  }
+  // pointer-events: none;
+  div {
+    overflow: hidden;
+    transition: transform 1s ease;
+    transform: translateX(100%);
+    &.contact {
+      position: absolute;
+      display: block;
+      width: 45vw;
+      height: 57vh;
+      /* background: white; */
+      left: 32%;
+      /* bottom: 0px; */
+      transform: translate(-50%, 50%) !important;
+      top: 50%;
+      text-align: center;
+      /* right: 0px !important; */
+      /* padding: 50px; */
+      overflow: visible !important;
+      font-size: 35px;
+      text-align: left;
+      h3 {
+        font-weight: 500;
+      }
+      span {
+        font-size: 40px;
+        background: none;
+        text-decoration: underline;
+        font-weight: 800;
+        &:hover {
+          color: white;
+        }
+      }
+      .mail {
+        cursor: pointer;
+        // &:hover{
+        //   // &:after{
+        //   //   content: ": tileshb@gmail.com"
+        //   // }
+        // }
+      }
+      .call {
+        cursor: pointer;
+        // &:hover{
+        //   // &:after{
+        //   //   content: ": 076 823 2169"
+        //   // }
+        // }
+      }
+      .sup {
+        &.notyet {
+          right: 100vw;
+        }
+        position: absolute;
+        pointer-events: none;
+        right: 0px;
+        bottom: 0px;
+        width: 30vw;
+      }
+    }
+    span {
+      text-align: right;
+      font-size: 3.5vh;
+      font-weight: 600;
+      padding: 2px 10px 2px 10px;
+      background-color: #e29587;
+      color: black;
+      transition: transform 1s ease;
+      transform: translateY(-100%);
+      mark {
+        position: relative;
+        display: inline-block;
+        background-color: #e29587;
+        padding: 0px 3px 0px 3px;
+        color: black;
+        -webkit-transition: color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+        transition: color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+        &:hover {
+          color: white;
+        }
+      }
+    }
   }
   &.closed {
     opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
   }
   &.open {
+    div {
+      transform: translateX(0);
+      span {
+        transform: translateY(0);
+      }
+    }
     .one {
       opacity: 1;
+      visibility: visible;
     }
     .two {
+      visibility: hidden;
       opacity: 0;
     }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .floatRight {
+    top: 40vh;
+    width: auto;
+    div {
+      &.contact {
+        width: 90% !important;
+        height: 11vh !important;
+        left: 50%;
+        font-size: 20px;
+        span {
+          font-size: 15px !important;
+        }
+      }
+    }
+  }
+  .floatRight div span{
+    font-size: 20px !important;
+  }
+  .mail,
+  .call {
+    font-size: 26px !important;
+  }
+  .comingSoon{
+    font-size: 28px !important;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

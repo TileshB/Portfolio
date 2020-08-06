@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="27px" height="28px" viewBox="0 0 27 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 9</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <ellipse id="path-1" cx="13.59375" cy="14.0972222" rx="5.765625" ry="5.97916667"></ellipse>
+        <filter x="-19.7%" y="-19.0%" width="139.5%" height="138.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feMorphology radius="0.774739583" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="0" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feMorphology radius="1" operator="erode" in="SourceAlpha" result="shadowInner"></feMorphology>
+            <feOffset dx="0" dy="0" in="shadowInner" result="shadowInner"></feOffset>
+            <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"></feComposite>
+            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.130632926 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <ellipse id="path-3" cx="20.6601563" cy="6.65972222" rx="1.6875" ry="1.75"></ellipse>
+        <filter x="-44.4%" y="-42.9%" width="188.9%" height="185.7%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.130632926 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="UI-" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop" transform="translate(-975.000000, -5717.000000)">
+            <g id="Footer" transform="translate(0.000000, 5590.000000)">
+                <g id="Instagram" transform="translate(975.000000, 126.000000)">
+                    <g id="Group-9" transform="translate(0.000000, 1.000000)">
+                        <g id="Icon">
+                            <path d="M2.73046875,8.19022503 L2.73046875,19.7854694 C2.73046875,22.746154 5.04396256,25.1440972 7.8996459,25.1440972 L19.2175416,25.1440972 C22.0712279,25.1440972 24.3867188,22.7440912 24.3867188,19.7854694 L24.3867188,8.19022503 C24.3867188,5.22954043 22.0732249,2.83159722 19.2175416,2.83159722 L7.8996459,2.83159722 C5.04595963,2.83159722 2.73046875,5.23160326 2.73046875,8.19022503 Z M0.26953125,8.19022503 C0.26953125,3.82183048 3.68710672,0.279513889 7.8996459,0.279513889 L19.2175416,0.279513889 C23.4320795,0.279513889 26.8476562,3.81976935 26.8476562,8.19022503 L26.8476562,19.7854694 C26.8476562,24.153864 23.4300808,27.6961806 19.2175416,27.6961806 L7.8996459,27.6961806 C3.68510801,27.6961806 0.26953125,24.1559251 0.26953125,19.7854694 L0.26953125,8.19022503 Z" id="Camera-Frame" fill="#FFFFFF" fill-rule="nonzero"></path>
+                            <g id="Oval-1">
+                                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                                <use stroke="#FFFFFF" stroke-width="1.54947917" xlink:href="#path-1"></use>
+                            </g>
+                            <g id="Oval-2">
+                                <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+                                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-3"></use>
+                            </g>
+                        </g>
+                        <path d="M13.5,21.4117647 C9.55278841,21.4117647 6.35294118,18.0934046 6.35294118,14 C6.35294118,9.90659538 9.55278841,6.58823529 13.5,6.58823529 C17.4472116,6.58823529 20.6470588,9.90659538 20.6470588,14 C20.6470588,18.0934046 17.4472116,21.4117647 13.5,21.4117647 Z M13.5,18.8046113 C16.0587452,18.8046113 18.133018,16.6535135 18.133018,14 C18.133018,11.3464865 16.0587452,9.19538871 13.5,9.19538871 C10.9412548,9.19538871 8.86698197,11.3464865 8.86698197,14 C8.86698197,16.6535135 10.9412548,18.8046113 13.5,18.8046113 Z" id="Oval-1" fill="#FFFFFF" fill-rule="nonzero"></path>
+                        <ellipse id="Oval-2" fill="#FFFFFF" cx="20.6470588" cy="6.58823529" rx="1.58823529" ry="1.64705882"></ellipse>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

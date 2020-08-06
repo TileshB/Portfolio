@@ -17,7 +17,7 @@ class GalleryV2 extends Component {
     this.setState({
       images: this.importAll(
         require.context(
-          "../resources/gallery/VI_Assets/",
+          "../resources/gallery/",
           false,
           /\.(png|jpe?g|svg)$/
         )

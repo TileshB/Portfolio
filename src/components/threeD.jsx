@@ -64,6 +64,7 @@ class ThreeD extends Component {
     this.camera.lookAt(new THREE.Vector3());
 
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    this.renderer.outputEncoding = THREE.sRGBEncoding;
     this.renderer.setClearColor(0x000000, 0); // the default
     this.renderer.setSize(window.innerWidth, window.innerHeight);
     this.renderer.gammaFactor = 2.2;
@@ -119,13 +120,16 @@ class ThreeD extends Component {
         // this.scene.add(gltf.scene);
         if (this.props.mySection === "one") {
           var object = gltf.scene;
+          object.material = new THREE.MeshLambertMaterial({
+            color: '#323232',
+          })
           gltf.scene.scale.set(14, 14, 14);
           gltf.scene.position.x = 0;
           // gltf.scene.position.y = -0.08; //Position (y = up+, down-)
           gltf.scene.position.z = 0;
           gltf.scene.rotation.y = 0;
           // console.log(gltf.scene.rotation);
-          this.scene.add(gltf.scene);
+          this.scene.add(object);
           // console.log(gltf);
         } else if (this.props.mySection === "two") {
           var object = gltf.scene;

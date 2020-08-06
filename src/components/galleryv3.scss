@@ -1,0 +1,81 @@
+.gallery-container {
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 100vh;
+  opacity: 0;
+  -webkit-transition: opacity 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: opacity 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+//   z-index: 11;
+  // .close-gallery {
+  //   width: 50px;
+  //   top: 7vh;
+  //   left: 8vw;
+  //   z-index: 12;
+  //   height: 50px;
+  //   background-color: white;
+  //   color: black;
+  //   font-weight: 800;
+  //   position: absolute;
+  //   border: 3px solid black;
+  //   border-radius: 100px;
+  //   span {
+  //     font-size: 30px;
+  //     font-weight: 800;
+  //     top: 50%;
+  //     position: absolute;
+  //     left: 50%;
+  //     transform: translate(-50%, -50%);
+  //   }
+  // }
+  .gallery-holder {
+    position: absolute;
+    width: 80vw;
+    height: 80vh;
+    z-index: 11;
+    opacity: 1;
+    overflow-y: scroll;
+    top: 100vh;
+    left: 50%;
+    transform: translate(-50%);
+    -webkit-transition: top 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: top 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+    &.open {
+      top: 10vh;
+      -webkit-transition: top 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+      transition: top 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+      img{
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        border: 0px solid rgba($color: #000000, $alpha: 0.0);
+        -webkit-transition: border 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+        transition: border 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+        &:hover{
+          border: 5px solid rgba($color: #000000, $alpha: 1.0);
+          -webkit-transition: border 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+          transition: border 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+          // cursor: none !important;
+        }
+      }
+    }
+  }
+  &.two {
+    &.open {
+      top: 0vh;
+      opacity: 1;
+      -webkit-transition: opacity 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+      transition: opacity 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+  }
+}
+
+.fullscreen{
+  button{
+    // cursor: none !important;
+  }
+}
+
+.react-photo-gallery--gallery > img {
+}
