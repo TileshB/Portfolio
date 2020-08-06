@@ -26,7 +26,7 @@ const FloatText = ({ action, open, section, triggerHover, offHover, showEmail, h
     para = (
       <div className="contact">
         <h3 className="first-contact">Well hey there!<br/> Want to get in contact, send me a <a href="mailto:tileshb@gmail.com"><span className="mail" onMouseEnter={showEmail} onMouseLeave={hideEmail}>mail <span className="brckt">(tileshb@gmail.com)</span></span></a>!</h3>
-        <h3 className="first-contact">If you really need to, give me a <span className="call" onMouseEnter={showNum} onMouseLeave={hideNum}>call <span className="brckt">(076 823 2169)</span></span>. Be warned, I am introverted and anxious!</h3>
+        <h3 className="first-contact">If you really need to, give me a <a href="tel:+27768232169"><span className="call" onMouseEnter={showNum} onMouseLeave={hideNum}>call <span className="brckt">(076 823 2169)</span></span></a>. Be warned, I am introverted and anxious!</h3>
         {/* <img className="sup" src={gif} alt=""/> */}
       </div>
     )
