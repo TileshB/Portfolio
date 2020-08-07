@@ -80,7 +80,7 @@ class New3D extends Component {
 
     animate(){
         // rotx:0.29, roty:2.86
-        // console.log("running")
+        // //console.log("running")
         if (this.state.roty !== this.props.mouseX * -1) {
             var tempVar =
               this.state.roty +
@@ -88,7 +88,7 @@ class New3D extends Component {
             if (tempVar > -0.5 && tempVar < 0.5) {
               tempVar = this.state.roty +=
                 (this.props.mouseX * -1 - this.state.roty) * 0.01;
-              // console.log("Y: " + this.state.roty);
+              // //console.log("Y: " + this.state.roty);
             }
             this.setState({
               roty: tempVar
@@ -101,7 +101,7 @@ class New3D extends Component {
         //     if (tempVar > 2 && tempVar < 3) {
         //       tempVar = this.state.rotx +=
         //         (this.props.mouseY * -1 - this.state.roty) * 0.001;
-        //       // console.log("X: " + this.state.rotx);
+        //       // //console.log("X: " + this.state.rotx);
         //     }
         //     this.setState({
         //         rotx: tempVar

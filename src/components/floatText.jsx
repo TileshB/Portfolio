@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./float.scss";
 import Social from "./social";
-import gif from "../resources/giphy.gif"
 
 const FloatText = ({ action, open, section, triggerHover, offHover, showEmail, hideEmail, showNum, hideNum }) => {
   let para;

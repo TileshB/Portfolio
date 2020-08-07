@@ -11,7 +11,7 @@ class Hamburger extends Component {
   }
 
   toggleMenu() {
-    console.log("Menu Clicked!!");
+    //console.log("Menu Clicked!!");
     if (this.state.open === "closed") {
       this.setState({
         open: "open"
@@ -26,7 +26,7 @@ class Hamburger extends Component {
   handleClicking(section, e){
     this.toggleMenu()
     this.props.onHover(section)
-    console.log("yup")
+    //console.log("yup")
   }
 
   render() {
@@ -50,7 +50,7 @@ class Hamburger extends Component {
           />
           <img
             className="ingredient bottom-bun"
-            // onMouseOver={e => console.log("Bottom bun all day!")}
+            // onMouseOver={e => //console.log("Bottom bun all day!")}
             src={require("../resources/icons/solid-burger/4x/bottom.png")}
             alt=""
           />

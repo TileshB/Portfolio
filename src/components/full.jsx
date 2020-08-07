@@ -1,4 +1,6 @@
-import React, { Component } from "react";
+import React, { Component, Suspense } from "react";
+
+
 import "./full.scss";
 import Left from "./left";
 import FloatText from "./floatText";
@@ -7,16 +9,17 @@ import Hamburger from "./hamburger";
 import BashScreen from "./bashScreen";
 // import ThreeD from "./threeD";
 import Overlay from "./overlay";
-import Masonary from "./galleryv3";
+// import Masonary from "./galleryv3";
 import styled from "styled-components";
 import BackText from "./backText";
 // import Cursor from "./cursor";
 import New3D from "./new3D";
+import Loading from "./loading"
 import DevShowcase from "./devShowcase"
 
 // import Gallery from "./gallery";
 // import ShakeyBoi from "./shakeyBoi";
-
+const  Masonary = React.lazy(() => import('./galleryv3'));
 const ThreeModelContainer = styled.div`
   position: absolute;
   top: 50%;
@@ -84,7 +87,7 @@ class FullHeight extends Component {
   componentDidMount() {
     window.addEventListener("keydown", (e) => this.Konami(e));
     var links = document.getElementsByClassName("link");
-    console.log(links);
+    //console.log(links);
     for (var x = 0; x < links.length; x++) {
       links[x].addEventListener("onmouseover", function () {
         alert("YEEEEEE");
@@ -108,7 +111,7 @@ class FullHeight extends Component {
   }
 
   changeCursor(_style) {
-    console.log(_style);
+    //console.log(_style);
     if (this.state.cursorStyle !== _style) {
       this.setState({
         cursorStyle: _style,
@@ -122,12 +125,12 @@ class FullHeight extends Component {
         open: "closed",
         scale: 16.5,
       });
-      console.log("Cliiiicked");
+      //console.log("Cliiiicked");
     }
   }
 
   toggleClose(e) {
-    console.log(e.target.classList.contains("link-item"));
+    //console.log(e.target.classList.contains("link-item"));
     if (this.state.section == "one") {
       if (e.target.classList.contains("link-item") !== true) {
         if (this.state.open === "open") {
@@ -135,7 +138,7 @@ class FullHeight extends Component {
             open: "closed",
             scale: 16.5,
           });
-          console.log("Cliiiicked");
+          //console.log("Cliiiicked");
         }
       }
     } else if (this.state.section !== "two") {
@@ -144,7 +147,7 @@ class FullHeight extends Component {
           open: "closed",
           scale: 16.5,
         });
-        console.log("Cliiiicked");
+        //console.log("Cliiiicked");
       }
     }
   }
@@ -155,7 +158,7 @@ class FullHeight extends Component {
         open: "open",
         scale: 12,
       });
-      // console.log(this.state.scale);
+      // //console.log(this.state.scale);
     }
     if (this.state.section !== "two") {
       if (this.state.open === "open") {
@@ -163,13 +166,13 @@ class FullHeight extends Component {
           open: "closed",
           scale: 16.5,
         });
-        console.log("Cliiiicked");
+        //console.log("Cliiiicked");
       }
     }
   }
 
   triggerHover() {
-    console.log("IM IN");
+    //console.log("IM IN");
     this.setState({
       hover: "hovering",
     });
@@ -206,7 +209,7 @@ class FullHeight extends Component {
   };
 
   toggleTerminal() {
-    console.log("Clicked!!");
+    //console.log("Clicked!!");
     if (this.state.cmd === "closed") {
       this.setState({
         cmd: "open",
@@ -222,7 +225,7 @@ class FullHeight extends Component {
     var tempX = e.clientX / window.innerWidth - 0.5;
     var tempY = e.clientY / window.innerHeight - 0.5;
     this.setState({ x: tempX, y: tempY });
-    // console.log(this.state.x, this.state.y);
+    // //console.log(this.state.x, this.state.y);
   };
 
   Konami = (e) => {
@@ -233,10 +236,10 @@ class FullHeight extends Component {
         this.setState((prevState) => ({
           keypressArray: [...prevState.keypressArray, e.keyCode],
         }));
-        console.log("okaaaay");
+        //console.log("okaaaay");
       } else {
         this.setState({ keypressArray: [] });
-        console.log("fucked it");
+        //console.log("fucked it");
       }
     }
     index = this.state.keypressArray.length;
@@ -246,7 +249,7 @@ class FullHeight extends Component {
   };
 
   handleScroll = (e) => {
-    // console.log("Ready to scroll ", e);
+    // //console.log("Ready to scroll ", e);
     var tempArray = [];
     var freshArray = [];
     tempArray = this.state.actives.slice();
@@ -266,10 +269,10 @@ class FullHeight extends Component {
         // this.setState({ actives: freshArray });
         currSection = this.getIndex(this.state.section, this.state.sections);
         if (currSection !== 0) currSection = currSection - 1;
-        // console.log(currSection);
+        // //console.log(currSection);
         tempArray = freshArray;
         tempArray[currSection] = "active";
-        // console.log(tempArray);
+        // //console.log(tempArray);
         this.setState({
           section: this.state.sections[currSection],
           title: this.state.titles[currSection],
@@ -283,10 +286,10 @@ class FullHeight extends Component {
           currSection = currSection + 1;
         tempArray = freshArray;
         tempArray[currSection] = "active";
-        // console.log(currSection);
-        // console.log(tempArray);
+        // //console.log(currSection);
+        // //console.log(tempArray);
 
-        // console.log("FUUUUUUUCK");
+        // //console.log("FUUUUUUUCK");
         this.setState({
           section: this.state.sections[currSection],
           title: this.state.titles[currSection],
@@ -307,10 +310,10 @@ class FullHeight extends Component {
     // // this.setState({ actives: freshArray });
     // currSection = this.getIndex(this.state.section, this.state.sections);
     // if (currSection !== 0) currSection = currSection - 1;
-    // // console.log(currSection);
+    // // //console.log(currSection);
     // tempArray = freshArray;
     // tempArray[currSection] = "active";
-    // console.log(tempArray);
+    // //console.log(tempArray);
     if (section === 0) tempArray = ["active", "hide", "hide", "hide"];
     else if (section === 1) tempArray = ["hide", "active", "hide", "hide"];
     else if (section === 2) tempArray = ["hide", "hide", "active", "hide"];
@@ -328,10 +331,10 @@ class FullHeight extends Component {
     //   currSection = currSection + 1;
     // tempArray = freshArray;
     // tempArray[currSection] = "active";
-    // console.log(currSection);
-    // console.log(tempArray);
+    // //console.log(currSection);
+    // //console.log(tempArray);
 
-    // console.log("FUUUUUUUCK");
+    // //console.log("FUUUUUUUCK");
     this.setState({
       section: this.state.sections[section],
       title: this.state.titles[section],
@@ -356,8 +359,10 @@ class FullHeight extends Component {
         /> */}
         <div className="center">
           <div className="transitioner"></div>
+          {/* <Loading></Loading> */}
           <BashScreen classes={this.state.cmd} onClose={this.toggleTerminal} />
           {/* <Gallery2 open={this.state.open} section={this.state.section} /> */}
+          <Suspense fallback={<div>loading...</div>}>
           <Masonary
             open={this.state.open}
             section={this.state.section}
@@ -365,6 +370,7 @@ class FullHeight extends Component {
             triggerHover={this.triggerHover}
             offHover={this.triggerHoverOff}
           />
+          </Suspense>
           {/* <DevShowcase/> */}
 
           <BackText

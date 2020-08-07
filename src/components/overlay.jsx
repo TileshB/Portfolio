@@ -24,7 +24,7 @@ class Overlay extends Component {
   }
 
   componentDidUpdate() {
-    // console.log("There was a change!!!");
+    // //console.log("There was a change!!!");
     if (this.props.open == "open") {
       if (this.props.section == "two") {
         if (this.state.interest["two"] == "UUDDLRLRBA&#9166;") {
@@ -76,7 +76,7 @@ class Overlay extends Component {
       today.getDate() +
       " " +
       today.getFullYear();
-    // console.log("THIS THAAANG" + this.state.interest[this.props.section]);
+    // //console.log("THIS THAAANG" + this.state.interest[this.props.section]);
     this.setState({ date: this.date });
   }
   render() {

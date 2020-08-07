@@ -70,7 +70,7 @@ class Masonary extends Component {
   openLightbox(event, { photo, index }){
     // this.state.setCurrentImage(index);
     // this.state.setViewerIsOpen(true);
-    // console.log("THE INDEX IS", index)
+    // //console.log("THE INDEX IS", index)
     this.setState({
       currentImage: index,
       viewerIsOpen: true
@@ -85,11 +85,11 @@ class Masonary extends Component {
   }
 
   getDimensions(_src) {
-    // console.log(_src);
+    // //console.log(_src);
     React.createElement("img", {
       src: _src,
       ref: image => {
-        // console.log(image);
+        // //console.log(image);
         return image.offsetWidth, image.offsetHeight;
       }
     });
@@ -104,20 +104,20 @@ class Masonary extends Component {
   }
 
   handleClick = (e) => {
-      // console.log("target", e.target.className)
+      // //console.log("target", e.target.className)
       if(e.target.classList.contains("gallery-container") || e.target.classList.contains("half") || e.target.classList.contains("textHolder")){
           this.props.closeGallery();
       }
   }
 
   componentDidUpdate() {
-    // console.log(this.state.images);
+    // //console.log(this.state.images);
     let temp = [];
     let x = 0;
     if (!this.state.rendered) {
       var counter = 0;
       for (x in this.state.images) {
-        // console.log(x);loca
+        // //console.log(x);loca
         var source = require(`../resources/gallery` +
           String(
             this.state.images[x].replace("static/media/", "").split(".")[0]
@@ -128,13 +128,13 @@ class Masonary extends Component {
           ));
         var height,
           width = this.getDimensions(source);
-        // console.log("HEIGHT: ", height, " WIDTH: ", width);
+        // //console.log("HEIGHT: ", height, " WIDTH: ", width);
         var img = {
           src: source,
           width: size[counter][0],
           height: size[counter][1]
         };
-        // console.log(img);
+        // //console.log(img);
         temp.push(img);
         counter += 1;
       }

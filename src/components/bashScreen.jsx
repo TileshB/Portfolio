@@ -44,7 +44,7 @@ class BashScreen extends Component {
 
   focusClick(event){
     // document.querySelectorAll(".terminal-base input").focus()
-    console.log("YYUUUUPPPP");
+    // //console.log("YYUUUUPPPP");
   }
 
   currChoice(params) {}
