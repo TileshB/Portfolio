@@ -13,13 +13,14 @@ import Overlay from "./overlay";
 import styled from "styled-components";
 import BackText from "./backText";
 // import Cursor from "./cursor";
-import New3D from "./new3D";
+// import New3D from "./new3D";
 import Loading from "./loading"
 import DevShowcase from "./devShowcase"
 
 // import Gallery from "./gallery";
 // import ShakeyBoi from "./shakeyBoi";
 const  Masonary = React.lazy(() => import('./galleryv3'));
+const  New3D = React.lazy(() => import('./new3D'));
 const ThreeModelContainer = styled.div`
   position: absolute;
   top: 50%;
@@ -399,7 +400,9 @@ class FullHeight extends Component {
             hideNum={this.hideNum}
           />
           <Overlay section={this.state.section} open={this.state.open} />
+          <Suspense fallback={<Loading></Loading>}>
           <New3D  section={this.state.section} open={this.state.open} mouseX={this.state.x} mouseY={this.state.y} />
+          </Suspense>
           {/* <Canvas
             concurrent
             gl={{ alpha: true }}
