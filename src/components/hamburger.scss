@@ -83,8 +83,10 @@
 }
 
 @media only screen and (max-width: 768px) {
-
+.burger{
+  bottom: 6vh !important;
+}
   .nav-list.open{
-    bottom: 2.5vh !important;
+    bottom: 3vh !important;
   }
 }

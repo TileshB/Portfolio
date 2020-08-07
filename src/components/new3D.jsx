@@ -2,6 +2,7 @@ import React, { Component, Suspense, useRef  } from "react";
 import * as THREE from 'three'
 import { Canvas, Dom, extend, useLoader, useThree, useFrame } from 'react-three-fiber'
 import Model from "./newDuck"
+import Loading from "./loading"
 import "./new3D.scss";
 // 2.86, 5.57
 class New3D extends Component {
@@ -143,7 +144,7 @@ class New3D extends Component {
     
     render() { 
         return (
-            <div className={`object ${this.props.open} mobi`}>
+            <div className={`object ${this.props.section} ${this.props.open} mobi`}>
                 {/* <input type="number" name="" id="" step="0.01" onChange={(e) => this.updatel1X(e.target.value)}/>
                 <input type="number" name="" id="" step="0.01" onChange={(e) => this.updatel1Y(e.target.value)}/>
                 <input type="number" name="" id="" step="0.01" onChange={(e) => this.updatel1Z(e.target.value)}/>
@@ -178,7 +179,7 @@ class New3D extends Component {
             <pointLight position={[-20, 50, 0]} intensity={0.8} />
             <pointLight position={[-20, -50, 100]} intensity={0.19}/>
             <pointLight position={[-20, 0, -100]} intensity={0.5}/>
-            <Suspense fallback={<Dom center>loading ...</Dom>}>
+            <Suspense fallback={null}>
                 <Model multi={this.state.multi} mouseX={this.props.mouseX} mouseY={this.props.mouseY} coordx={this.state.rotx} coordy={this.state.roty} coordz={this.state.rotz} />
             </Suspense>
             </Canvas></div> );

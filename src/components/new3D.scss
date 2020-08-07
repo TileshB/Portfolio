@@ -15,5 +15,10 @@
     .object{
         width: 75%;
         height: 75%;
+        &.four, &.two{
+            &.open{
+                opacity: 0;
+            }
+        }
     }
 }
